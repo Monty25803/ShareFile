@@ -5,16 +5,16 @@
   <title>File Upload</title>
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <!-- Google Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Kode+Mono:wght@400..700&family=Montserrat:wght@400;600&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet"> 
 </head>
 
 <body>
+  <div class="spacer">
   <div class="row">
-    <div class="container col-sm-4">
-      <div class="row justify-content-center">
-        <div class="col-md-6 custom-container">
+    <div class="col-sm-4 custom-container">
           <br>
             <img src="./assets/upload3.png" alt="Animated Image" class="animated-image">
           <h1 class="text-center mb-4 upload-heading">Select your files to upload</h1>
@@ -37,15 +37,11 @@
           <div class="d-grid gap-2 col-5 mx-auto">
             <button class="btn btn-primary" onclick="uploadFile()">Upload</button>
           </div>
-        </div>
-      </div>
     </div>
     <div class="col-sm-8"></div>
-  </div> 
+  </div>
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
-
-<router-outlet />

@@ -4,13 +4,16 @@ body {
     background-repeat: no-repeat;
     background-size: 100%;
     font-family: "Fredoka", sans-serif;
-    margin: 0%;
-    padding: 0%;
-    height: 100%;
+    height: 100vh; /* Set the height to 100vh */
+  }
+  .row{
+    justify-content: center;
+    
   }
   .custom-container {
     padding: 20px;
-    min-width: 270px; 
+    min-width: 320px;
+    max-width: 400px; 
     border-radius: 10px;
     text-align: center;
     background-color: rgb(255, 255, 255);
@@ -62,14 +65,16 @@ body {
     background-image: url('../assets/any17.png');
     background-repeat: no-repeat;
     background-size: 65%;
-    margin-top: 20px;
+    background-position: center;
   }
   .scrollbars {
     max-height: 60px;
     overflow: auto;
     scrollbar-width: none;
   }
-  
   .scrollbars::-webkit-scrollbar {
     display: none;
+  }
+  .spacer{
+    margin-bottom: 150px;
   }
