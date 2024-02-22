@@ -69,7 +69,8 @@ h1 {
   background-position: center;
 }
 .scrollbars {
-  max-height: 60px;
+  min-height: 140px;
+  max-height: 180px;
   overflow: auto;
   scrollbar-width: none;
 }
