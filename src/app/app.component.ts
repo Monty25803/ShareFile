@@ -31,39 +31,62 @@ export class AppComponent {
     const files = event.target.files;
     this.handleFileView(files);
   }
-  
-  handleFileView(files: FileList): void {
+
+  removeFile = (index: number, files: FileList, listItem: HTMLElement): void => {
+    const fileList = document.getElementById('file-list');
+    const fileListText = document.getElementById('file-list-text');
+    if (fileList) {
+        fileList.removeChild(listItem);
+        const remainingFiles = fileList.getElementsByTagName('div').length;
+        if (remainingFiles === 0 && fileListText) {
+          fileListText.innerHTML = 'Drag and drop or click to select files';
+          
+        } 
+        else if (fileListText) {
+          fileListText.innerHTML = `${remainingFiles} file(s) selected.`;
+        }
+     }
+  }
+
+  handleFileView = (files: FileList): void => {
     const fileView = document.getElementById('file-view');
     const fileListText = document.getElementById('file-list-text');
     const fileList = document.getElementById('file-list');
     if (fileView) {
-      fileView.classList.remove('drag-over');
+    fileView.classList.remove('drag-over');
     }
-
     if (files.length > 0) {
-      const fileListText = document.getElementById('file-list-text');
-      if (fileListText) {
+    if (fileListText) {
         fileListText.innerHTML = `${files.length} file(s) selected.`;
-      }
-      const fileList = document.getElementById('file-list');
-      if (fileList) {
-        fileList.innerHTML = '<p>Selected Files:</p>';
-        for (const file of Array.from(files)) {
-          const listItem = document.createElement('div');
-          listItem.textContent = file.name;
-          fileList.appendChild(listItem);
-        }
-      }
-    } else {
-      const fileListText = document.getElementById('file-list-text');
-      if (fileListText) {
-        fileListText.innerHTML = 'Drag and drop or click to select files';
-      }
-      const fileList = document.getElementById('file-list');
-      if (fileList) {
-        fileList.innerHTML = '';
+    }
+    if (fileList) {
+      for (let i = 0; i < files.length; i++) {
+        const listItem = document.createElement('div');
+        listItem.style.display = 'flex';
+        listItem.style.justifyContent = 'space-between';
+        listItem.style.alignItems = 'center';
+
+        const fileNameSpan = document.createElement('span');
+        fileNameSpan.textContent = `${i + 1}. ${files[i].name}`;
+
+        const removeIcon = document.createElement('span');
+        removeIcon.textContent = '❌';
+        removeIcon.style.cursor = 'pointer';
+        removeIcon.onclick = () => this.removeFile(i, files, listItem);
+
+        listItem.appendChild(fileNameSpan);
+        listItem.appendChild(removeIcon);
+        fileList.appendChild(listItem);
       }
     }
+  } else {
+  if (fileListText) {
+      fileListText.innerHTML = 'Drag and drop or click to select files';
+    }
+  if (fileList) {
+      fileList.innerHTML = '';
+    }
+   }
   }
 
   uploadFile(): void {

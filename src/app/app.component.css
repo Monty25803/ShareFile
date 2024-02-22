@@ -80,3 +80,6 @@ h1 {
 .spacer{
   margin-bottom: 100px;
 }
+#file-list{
+  text-align: left;
+}
